@@ -3,164 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Movies</title>
+    <title>CAC-MOVIES</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <link rel="stylesheet" href="./css/estilos.css">
+
     <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
     <header class="header">
         <nav class="navegacion">
             <a class="anclaLogo" href="#">
                 <i class="fas fa-film" aria-hidden="true"></i>
-                <span>FOUR Team Sports</span>
+                <span>CAC-Documentales deportivos</span>
             </a>
+            <div class="ContenedorSearch">
+                <form action="/searchResult.php">
+                    <input type="text" placeholder="Buscar.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
             <ul class="listaNav">
-                <li class="listaItem"><a class="linkNav" href="#tendencias">Tendencias</a></li>
-                <li class="listaItem"><a class="linkNav" href="./pages/registrarse.html">Registrarse</a></li>
-                <li class="listaItem"><a class="linkNav iniciarSesion" href="./pages/iniciosesion.html">Iniciar Sesión</a></li>
+                <li class="listaItem">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categorias
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                          <li><a class="dropdown-item" href="#marcadorFutbol">Futbol</a></li>
+                          <li><a class="dropdown-item" href="#marcadorEscalada">Escalada Deportiva</a></li>
+                          <li><a class="dropdown-item" href="#marcadorCrossfit">Crossfit</a></li>
+                          <li><a class="dropdown-item" href="#marcadorRunning">Running</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="listaItem"><a class="btn btn-primary" role="button" href="./pages/registrarse.html">Registrarse</a></li>
+                <li class="listaItem"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar Sesión</button></li>
             </ul>
         </nav>
     </header>
+    <!-- Modal -->
+    <div class="modal fade" data-bs-theme="dark" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modalLabel">Ingrese a su cuenta</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-2">
+                    <input type="email" class="form-control rounded-2" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="password" class="form-control rounded-2" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+                <p><a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Olvidaste tu contraseña?</a></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Adelante</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <main id="main" class="main">
-        <section data-aos="zoom-in"  data-aos-duration="1000" class="sectionPrincipal">
-            <h1 class="tituloPrincipal">Películas y series<br> Todo el deporte en un solo lugar</h1>
-            <h2 class="subtituloPrincipal">Membresía Premium. <br> A solo un click.</h2>
-            <a class="botonRegistrarse" href="./pages/registrarse.html">Registrate</a>
-        </section>
-        <section data-aos="fade-up" data-aos-offset="300" data-aos-delay="50" data-aos-duration="1000" class="buscadorPrincipal">
-            <h2 class="tituloSection">¿Qué estas buscando para ver?</h2>
-            <form class="buscadorPeliculas">
-                <input class="inputBuscador" type="text" placeholder="Buscar..."/>
-                <input class="botonBuscador" type="submit" value="Buscar">
-            </form>
-           
-
-        </section>
-        <hr>
-        <section id="tendencias" data-aos="fade-up" data-aos-offset="400" data-aos-delay="100" data-aos-duration="1000" class="peliculasTendencia">
-            <h3 class="tituloSection">Las tendencias de hoy</h3>
-            <div class="peliculas">
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                    
-                        <img class="imgTendencia" src="./assets/img/peli_1.jpg" alt="The Beekeeper" loading="lazy">
-                        
-                        <div class="tituloPelicula">
-                            <h4>The Beekeeper</h4>
-                        </div>
-                    
+        <div class="sectionPrincipal">
+            <div id="carouselSlides" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/img/main.slide/argentina-campeon.webp" class="d-block w-100" alt="...">
                     </div>
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                    
-                        <img class="imgTendencia" src="./assets/img/peli_2.jpg" alt="Badland Hunters" loading="lazy">
-                       
-                        <div class="tituloPelicula">
-                            <h4>Badland Hunters</h4>
-                        </div>
-                    
+                    <div class="carousel-item">
+                        <img src="./assets/img/main.slide/crossfit-games.jpg" class="d-block w-100" alt="...">
                     </div>
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                        
-                        <img class="imgTendencia" src="./assets/img/peli_3.jpg" alt="The Marvels" loading="lazy">
-                        
-                        <div class="tituloPelicula">
-                            <h4>The Marvels</h4>
-                        </div>
-                    
+                    <div class="carousel-item">
+                        <img src="./assets/img/main.slide/calistenia-kKoD--1248x698@abc.webp" class="d-block w-100" alt="...">
                     </div>
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                        
-                        <img class="imgTendencia" src="./assets/img/peli_4.jpg" alt="Wonka" loading="lazy">
-                        
-                        <div class="tituloPelicula">
-                                <h4>Wonka</h4>
-                        </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/main.slide/consejos-para-hacer-tu-primer-medio-maraton-portada.jpg" class="d-block w-100" alt="...">
                     </div>
-                   
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                        
-                        <img class="imgTendencia" src="./assets/img/peli_5.jpg" alt="Aquaman and the Lost Kingdom" loading="lazy">
-                        
-                        <div class="tituloPelicula">
-                            <h4>Aquaman and the Lost Kingdom</h4>
-                        </div>
-                    
-                    </div>
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                        
-                        <img class="imgTendencia" src="./assets/img/peli_6.jpg" alt="Migration" loading="lazy">
-                        
-                        <div class="tituloPelicula">
-                            <h4>Migration</h4>
-                        </div>
-                        
-                    </div>
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                        
-                        <img class="imgTendencia" src="./assets/img/peli_7.jpg" alt="Sixty Minutes" loading="lazy">
-                       
-                        <div class="tituloPelicula">
-                            <h4>Sixty Minutes</h4>
-                        </div>
-                    
-                    </div>
-                </a>
-                <a href="./pages/detalle.html">
-                    <div class="pelicula">
-                        
-                        <img class="imgTendencia" src="./assets/img/peli_8.jpg" alt="Wish" loading="lazy">
-                        
-                        <div class="tituloPelicula">
-                            <h4>Wish</h4>
-                        </div>
-                    
-                    </div>
-                </a>
-                
+                </div>
             </div>
-            <button class="boton anterior">Anterior</button>  
-            <button class="boton siguiente">Siguiente</button>
-        </section>
+        </div>
+
+        <div class="container" data-aos="zoom-in"  data-aos-duration="1000">
+            <div class="centered"><h1 class="tituloPrincipal">Documentales deportivos <br> totalmente gratis</h1><h2 class="subtituloPrincipal">Hechos reales, <br> en la mejor calidad.</h2>
+            <a class="btn btn-primary" href="./pages/registrarse.html">Registrate</a></div>
+        </div>
+
+        <label id="marcadorFutbol"></label>
         <hr>
-        <section data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="2000" class="peliculasAclamadas">
-            <h3 class="tituloSection">Las más aclamadas</h3>
-             <div class="aclamadas">
+        <section data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="2000" class="documentales">
+            <h3 class="tituloSection">Futbol</h3>
+             <div class="listaDocumentales" id="futbolList">
                 <div class="peliculaItem">
-                    <img class="imgAclamada" src="./assets/img/aclamada_1.jpg" alt="aclamada_1" loading="lazy">
+                    <img class="imgPeliculas" src="./assets/img/Futbol/much.webp" alt="Muchachos" loading="lazy">
                 </div>
                 <div class="peliculaItem">
-                    <img class="imgAclamada" src="./assets/img/aclamada_2.jpg" alt="aclamada_2" loading="lazy">
+                    <img class="imgPeliculas" src="./assets/img/Futbol/Diego_Maradona-381703784-mmed.jpg" alt="Maradona" loading="lazy">
                 </div>
                 <div class="peliculaItem">
-                    <img class="imgAclamada" src="./assets/img/aclamada_3.jpg" alt="aclamada_3" loading="lazy">
+                    <img class="imgPeliculas" src="./assets/img/Futbol/capitanes-del-mundo-netflix.webp" alt="Capitanes del mundo" loading="lazy">
                 </div>
                 <div class="peliculaItem">
-                    <img class="imgAclamada" src="./assets/img/aclamada_4.jpg" alt="aclamada_4" loading="lazy">
+                    <img class="imgPeliculas" src="./assets/img/Futbol/Carlos-Kaiser-Raposo.jpg" alt="Carlos Kaiser" loading="lazy">
                 </div>
                 <div class="peliculaItem">
-                    <img class="imgAclamada" src="./assets/img/aclamada_5.jpg" alt="aclamada_5" loading="lazy">
-                </div>
-                <div class="peliculaItem">
-                    <img class="imgAclamada" src="./assets/img/aclamada_6.jpg" alt="aclamada_6" loading="lazy">
+                    <img class="imgPeliculas" src="./assets/img/Futbol/Antoine_Griezmann_Campeaon_del_mundo_TV-670277184-mmed.jpg" alt="Greizmann" loading="lazy">
                 </div>
             </div>
         </section>
 
+        <label id="marcadorEscalada"></label>
+        <hr>
+        <section data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="2000" class="documentales">
+            <h3 class="tituloSection">Escalada Deportiva</h3>
+             <div class="listaDocumentales" id="escalada">
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/A GIRL THING.jpg" alt="Girl Things" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/CHINA JAM.jpg" alt="MChina jam" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/climbing_wall.jpg" alt="Climbing wall" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/CONEXIÓN EN GALES.jpg" alt="Conexion en Gales" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/CORE.jpg" alt="Core" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/Free_Solo.jpg" alt="Free solo" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/KING LINES.jpg" alt="King lines" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/REDEMPTION.jpg" alt="Redemption" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/REEL ROCK 10.jpg" alt="Reel rock 10" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/REEL ROCK 11.jpg" alt="Reel rock 11" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/SOLO. ESCALADA A LA VIDA.jpg" alt="Solo" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/THE DAWN WALL.jpg" alt="Dawn wall" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/escalada/WIDE BOYZ II.jpg" alt="wide boyz 2" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <label id="marcadorCrossfit"></label>
+        <hr>
+        <section data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="2000" class="documentales">
+            <h3 class="tituloSection">Crossfit</h3>
+             <div class="listaDocumentales" id="crossfit">
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/bb138f313165e6bfcfab167bf78f0913008b00d6ca6df10976a656b0fd3dc47d.jpg" alt="Fronning" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/Every Second Count_.jpg" alt="Every second count" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/Fittest in Dubai.jpg" alt="Fittest in Dubai" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/Fittest_on_Earth_A_Decade_of_Fitness-746783626-large.jpg" alt="FOE A decade of fitness" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/Fittest_on_Earth_Next_Gen-805502909-large.jpg" alt="FOE next gen" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/Funcional Fitness.jpg" alt="Funcional fitness" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/REDEEMED AND DOMINANT.jpg" alt="FOE Redeemed and dominant" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Crossfit/the-fittest-1582018325.png" alt="FOE Fittest" loading="lazy">
+                </div>
+            </div>
+        </section>
+        <label id="marcadorRunning"></label>
+        <hr>
+        <section data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="2000" class="documentales">
+            <h3 class="tituloSection">Running</h3>
+             <div class="listaDocumentales" id="Running">
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/38bd9d3577069964910167ba2610095ef880f5e19f1ad96778a9a5ddc3003490.jpg" alt="Running for goog" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/869-500-km-la-carrera-mas-larga-de-europa2.jpg" alt="La carrera mas larga" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/89017-running-for-the-revolution-el-documental-sobre-alberto-juantorena.jpg" alt="runnig for rev" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/Corazondecorredor.jpg" alt="Corazon de corredors" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/el_triunfo_del_espiritu.jpg" alt="triunfo del espiritu" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/unbreakable.jpg" alt="unbreakable" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/La leyenda de filippides.png" alt="Leyenda de filippides" loading="lazy">
+                </div>
+                <div class="peliculaItem">
+                    <img class="imgPeliculas" src="./assets/img/Running/poster_final_27x39-716x1024.jpg" alt="transcend" loading="lazy">
+                </div>
+            </div>
+        </section>
+        <hr>
     </main>
     <footer class="footer">
         <nav class="navegacion">
@@ -179,5 +247,6 @@
     <script>
     AOS.init();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
