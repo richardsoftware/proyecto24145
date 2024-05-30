@@ -31,12 +31,12 @@ const validacionRegistro = ()=>{
     alert("EL formulario se envio con exito");
     });
 }
-
 const validacionLogin = ()=>{
 
         var inputMail = document.getElementById("floatingInput").value;
         var inputPass = document.getElementById("floatingPassword").value;
         var errores = document.getElementById('errores');
+        var success = document.getElementById('success');
         var regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         errores.textContent = "";
@@ -53,5 +53,6 @@ const validacionLogin = ()=>{
            errores.textContent =`Debe completar la contraseña`;
            return;
        }
-
+       errores.textContent = "";
+       success.textContent = "Ingresado con exito, bienvenido";
 }
