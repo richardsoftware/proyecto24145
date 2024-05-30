@@ -398,7 +398,7 @@ body{
                     padding: 0px 20px;
                     font-size: 1.2rem;
                     border-radius: 20px;
-                    border: 2px solid --color-primario;
+                    border: 2px solid var(--color-primario);
                     background-color: #333333;
                     outline: none;
                     color:white;
